@@ -1,0 +1,24 @@
+server:
+  address: 127.0.0.1
+  port: 24110
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/distcomp
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        default_schema: distcomp
+        format_sql: true
+  liquibase:
+    change-log: classpath:db/changelog/changelog-master.xml
+    default-schema: distcomp
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
